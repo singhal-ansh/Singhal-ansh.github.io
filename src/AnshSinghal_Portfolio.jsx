@@ -11,30 +11,69 @@ const SKILLS = {
   "Core CS": ["DSA", "OOP", "MVC Architecture", "Design Patterns", "API Security"],
 };
 
+const SKILL_ICONS = {
+  "Languages": (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+    </svg>
+  ),
+  "Frontend": (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/>
+    </svg>
+  ),
+  "Backend": (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/>
+      <line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+    </svg>
+  ),
+  "Databases": (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+    </svg>
+  ),
+  "DevOps & Tools": (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+    </svg>
+  ),
+  "Core CS": (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/>
+      <line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/>
+      <line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/>
+      <line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="14" x2="22" y2="14"/>
+      <line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="14" x2="4" y2="14"/>
+    </svg>
+  ),
+};
+
 const PROJECTS = [
   {
+    name: "Digital Gold Wallet",
+    desc: "Secure backend for digital gold transactions, wallet management & payment processing. JWT auth, Razorpay integration, and Dockerized deployment for scalable handling.",
+    tags: ["Spring Boot", "PostgreSQL", "Docker", "JWT", "Razorpay"],
+    code: "https://github.com/singhal-ansh/digigold-backend",
+    live: "https://digigold-frontend-production.up.railway.app/",
+    icon: "💰",
+  },
+  {
     name: "Wanderlust",
-    desc: "Full-stack property listing app built with MERN stack & EJS for server-side rendering. Complete CRUD via RESTful API, MVC design pattern.",
+    desc: "Full-stack property listing platform with authentication, CRUD operations, REST API integration, and cloud-based image storage via Cloudinary.",
     tags: ["MongoDB", "Express.js", "Node.js", "REST API", "MVC"],
     code: "https://github.com/Singhal-ansh/wanderlust",
-    live: "https://wanderlust-znk4.onrender.com/",
+    live: "https://wanderlust-znk4.onrender.com/listings",
     icon: "🏠",
   },
   {
     name: "Movie Explorer",
-    desc: "Dynamic movie list app with responsive UI/UX, integrates TMDb & OMDb APIs for real-time data. Users can browse, add & manage favorites.",
-    tags: ["React.js", "TMDb API", "OMDb API", "Responsive UI"],
+    desc: "Responsive movie discovery platform with dynamic search, favorites management, and real-time TMDB API integration with reusable React components.",
+    tags: ["React.js", "TMDb API", "JavaScript", "Responsive UI"],
     code: "https://github.com/Singhal-ansh/Movie-List-using-React",
     live: "https://react-movie-explorer.onrender.com/",
     icon: "🎬",
-  },
-  {
-    name: "Simon Says Game",
-    desc: "Classic memory-based game with progressive difficulty, built purely with HTML, CSS and vanilla JavaScript.",
-    tags: ["HTML5", "CSS3", "JavaScript", "Game Logic"],
-    code: "https://github.com/singhal-ansh/Simon-says-game-",
-    live: "https://simonsays-game-ke7x.onrender.com/",
-    icon: "🎮",
   },
 ];
 
@@ -43,26 +82,23 @@ const EXPERIENCE = [
     role: "Software Developer Intern",
     company: "Carvemylife Coaching Services Pvt Ltd",
     location: "Bangalore, India",
-    period: "June 2025 – Present",
+    period: "June 2025 – Oct 2025",
     type: "internship",
     bullets: [
-      "Engineered full-stack ERP modules using Python, JavaScript & Jinja within Frappe/ERPNext framework with dynamic UIs, custom APIs & automated workflows.",
-      "Developed backend services with server-side scripts, REST API integrations & scheduled jobs for data processing and task automation.",
-      "Designed and optimized database schemas and queries for high performance and scalability.",
-      "Worked in Git/GitHub CI/CD workflow with feature branching, code reviews & containerized development using Docker.",
+      "Engineered 5+ ERP modules using Python, JavaScript, and Frappe, reducing manual operational effort through workflow automation.",
+      "Built 10+ REST APIs and automated backend jobs across core business workflows to improve operational efficiency.",
+      "Collaborated in Agile development using Git/GitHub and Docker-based environments for scalable feature deployment.",
     ],
   },
   {
-    role: "Associate Engineer Trainee",
+    role: "Java Full Stack Trainee",
     company: "Capgemini",
     location: "India",
-    period: "2025 — Pre-Joining Training",
+    period: "Jan 2026 – May 2026",
     type: "training",
     bullets: [
-      "Completed intensive full-stack training program covering enterprise-grade Java & Spring Boot application development.",
-      "Built RESTful microservices with Spring Boot backed by PostgreSQL with JPA/Hibernate ORM.",
-      "Developed Angular frontend modules with component-based architecture and reactive forms.",
-      "Implemented Jenkins CI/CD pipelines for automated build, test & deployment workflows.",
+      "Designed and developed RESTful APIs using Spring Boot, PostgreSQL, and JPA/Hibernate for authentication and business workflows.",
+      "Integrated Angular frontend applications with Spring Boot backend services following MVC architecture practices.",
     ],
   },
 ];
@@ -82,14 +118,15 @@ function AnimSection({ children, className = "", delay = 0 }) {
   const inView = useInView(ref);
   return (
     <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: inView ? 1 : 0,
-        transform: inView ? "translateY(0)" : "translateY(40px)",
-        transition: `opacity 0.7s ease ${delay}s, transform 0.7s ease ${delay}s`,
-      }}
-    >
+  ref={ref}
+  className={className}
+  style={{
+    height: "100%",
+    opacity: inView ? 1 : 0,
+    transform: inView ? "translateY(0)" : "translateY(40px)",
+    transition: `opacity 0.7s ease ${delay}s, transform 0.7s ease ${delay}s`,
+  }}
+>
       {children}
     </div>
   );
@@ -257,25 +294,28 @@ export default function Portfolio() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" style={{ padding: "100px 24px", maxWidth: 1100, margin: "0 auto" }}>
-        <AnimSection>
-          <div className="section-label">// 01. expertise</div>
-          <h2 className="section-title" style={{ marginBottom: 16 }}>Technical <span style={{ color: "#00FFB2" }}>Skills</span></h2>
-          <p style={{ color: "#7A8799", maxWidth: 500, marginBottom: 60 }}>A curated stack built through projects, internships & enterprise training.</p>
-        </AnimSection>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 24 }}>
-          {Object.entries(SKILLS).map(([cat, items], i) => (
-            <AnimSection key={cat} delay={i * 0.08}>
-              <div className="card" style={{ padding: 28 }}>
-                <div style={{ color: "#00FFB2", fontFamily: "'JetBrains Mono', monospace", fontSize: 12, marginBottom: 16, letterSpacing: 1 }}>{cat.toUpperCase()}</div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                  {items.map(s => <span key={s} className="skill-pill">{s}</span>)}
-                </div>
-              </div>
-            </AnimSection>
-          ))}
+<section id="skills" style={{ padding: "100px 24px", maxWidth: 1100, margin: "0 auto" }}>
+  <AnimSection>
+    <div className="section-label">// 01. expertise</div>
+    <h2 className="section-title" style={{ marginBottom: 16 }}>Technical <span style={{ color: "#00FFB2" }}>Skills</span></h2>
+    <p style={{ color: "#7A8799", maxWidth: 500, marginBottom: 60 }}>A curated stack built through projects, internships & enterprise training.</p>
+  </AnimSection>
+  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 24, alignItems: "stretch" }}>
+    {Object.entries(SKILLS).map(([cat, items], i) => (
+      <AnimSection key={cat} delay={i * 0.08}>
+        <div className="card" style={{ padding: 28, height: "100%", boxSizing: "border-box" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+            <span style={{ color: "#00FFB2" }}>{SKILL_ICONS[cat]}</span>
+            <div style={{ color: "#00FFB2", fontFamily: "'JetBrains Mono', monospace", fontSize: 12, letterSpacing: 1 }}>{cat.toUpperCase()}</div>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            {items.map(s => <span key={s} className="skill-pill">{s}</span>)}
+          </div>
         </div>
-      </section>
+      </AnimSection>
+    ))}
+  </div>
+</section>
 
       {/* PROJECTS */}
       <section id="projects" style={{ padding: "100px 24px", background: "rgba(255,255,255,0.01)" }}>
